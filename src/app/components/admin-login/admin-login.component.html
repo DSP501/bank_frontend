@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+</head>
+<div class="header">
+    <h1>WELCOME ADMIN </h1>
+</div>
+<body>
+  <div class="modal-body" style="padding:40px 50px;">
+    <form  (ngSubmit) ="verify()">
+        <div class="form-group">
+          <h2>Admin Login</h2>
+          <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
+          <input type="text" [(ngModel)]=empId name="empId" class="form-control" id="usrname" placeholder="Enter empId" />
+        </div>
+        <!-- <div class="form-group"> 
+          <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+          <input type="password" [(ngModel)]=pass name="pass" class="form-control" id="psw" placeholder="Enter password" />
+        </div> -->
+      
+          <button type="submit"  class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Login </button>
+          <p *ngIf=msg style="color:red;font-size: 20px;"> Invalid Username or password </p>
+        </form>
+    </div>
+</body>
+</html>
+<!--<a routerLink="/admin" routerLinkActive="active">-->
+
+
