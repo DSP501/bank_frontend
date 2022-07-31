@@ -1,1 +1,535 @@
-<p>user-register works!</p>
+<form #regform="ngForm" (ngSubmit)="registerUser(regform.value)">
+  <div class="row text-center p-2 mb-3 bg-light">
+    <span class="fs-2">Register</span>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <div class="input-group mb-3">
+        <label class="input-group-text">Title</label>
+        <select
+          required
+          #title="ngModel"
+          class="form-select"
+          name="title"
+          ngModel
+        >
+          <option selected>Choose...</option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Ms">Ms</option>
+        </select>
+      </div>
+      <div *ngIf="title.touched && title.invalid" class="alert alert-danger">
+        <p *ngIf="title.hasError('required')">Title is required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="form-label">First Name</label>
+      <input
+        required
+        #fname="ngModel"
+        type="text"
+        class="form-control"
+        name="fname"
+        ngModel
+      />
+      <div *ngIf="fname.touched && fname.invalid" class="alert alert-danger">
+        <p *ngIf="fname.hasError('required')">First name is required</p>
+      </div>
+    </div>
+
+    <div class="col">
+      <label class="form-label">Middle Name</label>
+      <input
+        required
+        #mname="ngModel"
+        type="text"
+        class="form-control"
+        name="mname"
+        ngModel
+      />
+    </div>
+    <div class="col">
+      <label class="form-label">Last Name</label>
+      <input
+        required
+        #lname="ngModel"
+        type="text"
+        class="form-control"
+        name="lname"
+        ngModel
+      />
+      <div *ngIf="lname.touched && lname.invalid" class="alert alert-danger">
+        <p *ngIf="lname.hasError('required')">Last Name is required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Father's Name</label>
+      <input
+        required
+        #father_name="ngModel"
+        type="text"
+        class="form-control"
+        name="father_name"
+        ngModel
+      />
+      <div
+        *ngIf="father_name.touched && father_name.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="father_name.hasError('required')">
+          Father's Name is required
+        </p>
+      </div>
+    </div>
+
+    <div class="col">
+      <label class="form-label">Email</label>
+      <input
+        required
+        #email="ngModel"
+        type="email"
+        class="form-control"
+        name="email"
+        ngModel
+      />
+      <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+        <p *ngIf="email.hasError('required')">Email is required</p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">Phone No</label>
+      <input
+        required
+        #mobile_no="ngModel"
+        type="tel"
+        class="form-control"
+        name="mobile_no"
+        ngModel
+      />
+      <div
+        *ngIf="mobile_no.touched && mobile_no.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="mobile_no.hasError('required')">Phone no is required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Aadhar</label>
+      <input
+        required
+        #aadhar_no="ngModel"
+        type="text"
+        class="form-control"
+        name="aadhar_no"
+        minlength="16"
+        maxlength="16"
+        ngModel
+      />
+      <div
+        *ngIf="aadhar_no.touched && aadhar_no.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="aadhar_no.hasError('required')">Aadhar no is required</p>
+        <p
+          *ngIf="
+            aadhar_no.hasError('minlength') || aadhar_no.hasError('maxlength')
+          "
+        >
+          Aadhar no not valid
+        </p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">Pan Card</label>
+      <input
+        #pancard="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="pancard"
+        ngModel
+      />
+      <div
+        *ngIf="pancard.touched && pancard.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="pancard.hasError('required')">Pancard is required</p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">Date Of Birth</label>
+      <input
+        #dob="ngModel"
+        required
+        type="date"
+        class="form-control"
+        name="dob"
+        ngModel
+      />
+      <div *ngIf="dob.touched && dob.invalid" class="alert alert-danger">
+        <p *ngIf="dob.hasError('required')">DOB is required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Occupation</label>
+      <input
+        #occupation_type="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="occupation_type"
+        ngModel
+      />
+      <div
+        *ngIf="occupation_type.touched && occupation_type.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="occupation_type.hasError('required')">
+          Ocupation Type is required
+        </p>
+      </div>
+    </div>
+
+    <div class="col">
+      <label class="form-label">Source of income</label>
+      <input
+        #source_of_income="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="source_of_income"
+        ngModel
+      />
+      <div
+        *ngIf="source_of_income.touched && source_of_income.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="source_of_income.hasError('required')">
+          Source of income is required
+        </p>
+      </div>
+    </div>
+
+    <div class="col">
+      <label class="form-label">Gross income</label>
+      <input
+        #gross_income="ngModel"
+        required
+        type="number"
+        class="form-control"
+        name="gross_income"
+        ngModel
+      />
+      <div
+        *ngIf="gross_income.touched && gross_income.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="gross_income.hasError('required')">
+          Ocupation Type is required
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <span class="fs-5">Residential Address</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Address Line 1</label>
+      <input
+        #add_line_1="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="add_line_1"
+        ngModel
+      />
+      <div
+        *ngIf="add_line_1.touched && add_line_1.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="add_line_1.hasError('required')">This is required</p>
+      </div>
+    </div>
+
+    <div class="col">
+      <label class="form-label">Address Line 2</label>
+      <input
+        #add_line_2="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="add_line_2"
+        ngModel
+      />
+      <div
+        *ngIf="add_line_2.touched && add_line_2.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="add_line_2.hasError('required')">This is required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Landmark</label>
+      <input
+        #landmark="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="landmark"
+        ngModel
+      />
+      <div
+        *ngIf="landmark.touched && landmark.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="landmark.hasError('required')">This is required</p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">State</label>
+      <input
+        #state="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="state"
+        ngModel
+      />
+      <div *ngIf="state.touched && state.invalid" class="alert alert-danger">
+        <p *ngIf="state.hasError('required')">This is required</p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">City</label>
+      <input
+        #city="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="city"
+        ngModel
+      />
+      <div *ngIf="city.touched && city.invalid" class="alert alert-danger">
+        <p *ngIf="city.hasError('required')">This is required</p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">Pincode</label>
+      <input
+        #pincode="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="pincode"
+        ngModel
+      />
+      <div
+        *ngIf="pincode.touched && pincode.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="pincode.hasError('required')">This is required</p>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <div class="form-check">
+        <label class="form-check-label">
+          Is permanent address same as residential address</label
+        >
+        <input
+          #same_addr
+          class="form-check-input"
+          type="checkbox"
+          name="addr_same"
+          unchecked
+          ngModel
+        />
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <span class="fs-5">Permanent Address</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Address Line 1</label>
+      <input
+        #p_add_line_1="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="p_add_line_1"
+        ngModel
+      />
+    </div>
+    <div
+      *ngIf="p_add_line_1.touched && p_add_line_1.invalid"
+      class="alert alert-danger"
+    >
+      <p *ngIf="p_add_line_1.hasError('required')">This is required</p>
+    </div>
+
+    <div class="col">
+      <label class="form-label">Address Line 2</label>
+      <input
+        #p_add_line_2="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="p_add_line_2"
+        ngModel
+      />
+      <div
+        *ngIf="p_add_line_2.touched && p_add_line_2.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="p_add_line_2.hasError('required')">This is required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="form-label">Landmark</label>
+      <input
+        #p_landmark="ngModel"
+        type="text"
+        class="form-control"
+        name="p_landmark"
+        ngModel
+      />
+      <div
+        *ngIf="p_landmark.touched && p_landmark.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="p_landmark.hasError('required')">This is required</p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">State</label>
+      <input
+        #p_state="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="p_state"
+        ngModel
+      />
+      <div
+        *ngIf="p_state.touched && p_state.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="p_state.hasError('required')">This is required</p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">City</label>
+      <input
+        #p_city="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="p_city"
+        ngModel
+      />
+      <div *ngIf="p_city.touched && p_city.invalid" class="alert alert-danger">
+        <p *ngIf="p_city.hasError('required')">This is required</p>
+      </div>
+    </div>
+    <div class="col">
+      <label class="form-label">Pincode</label>
+      <input
+        #p_pincode="ngModel"
+        required
+        type="text"
+        class="form-control"
+        name="p_pincode"
+        ngModel
+      />
+      <div
+        *ngIf="p_pincode.touched && p_pincode.invalid"
+        class="alert alert-danger"
+      >
+        <p *ngIf="p_pincode.hasError('required')">This is required</p>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <div class="form-check">
+        <label class="form-check-label"> Do you want a debit card</label>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="has_debit_card"
+          ngModel
+        />
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <div class="form-check">
+        <label class="form-check-label">
+          I agree with all the terms and conditions</label
+        >
+        <input required class="form-check-input" type="checkbox" />
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="regform.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+
+  <br /><br />
+</form>
