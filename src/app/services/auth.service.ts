@@ -16,6 +16,10 @@ export class AuthService {
     return this.http.post<any>(this.baseurl, data);
   }
 
+  unlock(data: any): Observable<any> {
+    return this.http.post<any>(this.baseurl + '/unlock', data);
+  }
+
   setToken(data: any) {
     localStorage.setItem('login', 'true');
 

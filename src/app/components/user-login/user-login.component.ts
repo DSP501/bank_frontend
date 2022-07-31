@@ -29,6 +29,7 @@ export class UserLoginComponent implements OnInit {
           console.log(res.fname);
 
           this._service.setToken(res);
+          this.router.navigate(['/test']);
         }
       } else {
         console.log('failure');

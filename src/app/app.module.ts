@@ -10,9 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { TestComponent } from './components/test/test.component';
+import { UnlockAccountComponent } from './components/unlock-account/unlock-account.component';
 
 @NgModule({
-  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, TestComponent],
+  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, TestComponent, UnlockAccountComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

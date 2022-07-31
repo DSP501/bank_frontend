@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./test.component.css'],
 })
 export class TestComponent implements OnInit {
+  fname = localStorage.getItem('fname');
+  lname = localStorage.getItem('lname');
+
   constructor(private _service: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
