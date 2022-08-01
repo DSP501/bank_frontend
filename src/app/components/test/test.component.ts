@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./test.component.css'],
 })
 export class TestComponent implements OnInit {
-  fname = localStorage.getItem('fname');
-  lname = localStorage.getItem('lname');
+  fname = localStorage.getItem('emp_id');
+  lname = localStorage.getItem('emp_name');
 
   constructor(private _service: AuthService, private router: Router) {}
 
@@ -17,6 +17,6 @@ export class TestComponent implements OnInit {
 
   logout() {
     this._service.removeToken();
-    this.router.navigate(['/userlogin']);
+    this.router.navigate(['/adminlogin']);
   }
 }
