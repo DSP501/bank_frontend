@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccStatusComponent } from './components/acc-status/acc-status.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { SetPasswordComponent } from './components/set-password/set-password.component';
 import { TestComponent } from './components/test/test.component';
@@ -11,7 +12,7 @@ import { AdminGuard } from './services/admin.guard';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: AdminLoginComponent },
+  { path: '', component: AdminDashboardComponent },
   { path: 'registeruser', component: UserRegisterComponent },
   { path: 'userlogin', component: UserLoginComponent },
   { path: 'test', component: TestComponent, canActivate: [AdminGuard] },
@@ -19,6 +20,11 @@ const routes: Routes = [
   { path: 'setcred', component: SetPasswordComponent },
   { path: 'unlock', component: UnlockAccountComponent },
   { path: 'adminlogin', component: AdminLoginComponent },
+  {
+    path: 'admindashboard',
+    component: AdminDashboardComponent,
+    canActivate: [AdminGuard],
+  },
 ];
 
 @NgModule({

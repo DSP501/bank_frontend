@@ -59,6 +59,12 @@
         >
           I'd Required
         </div>
+        <div class="form-text text-danger" *ngIf="dontAllow">
+          I'd does not exist
+        </div>
+        <div class="form-text text-danger" *ngIf="noAccess">
+          You are not a manager
+        </div>
       </div>
     </div>
 

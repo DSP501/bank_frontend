@@ -14,6 +14,10 @@ export class AdminService {
     return this.http.post<any>(this.baseurl, data);
   }
 
+  getData(): Observable<any> {
+    return this.http.get<any>(this.baseurl);
+  }
+
   setToken(data: any) {
     localStorage.setItem('admin_login', 'true');
     localStorage.setItem('emp_id', data.emp_id);

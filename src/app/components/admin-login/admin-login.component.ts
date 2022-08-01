@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/services/admin.service';
 export class AdminLoginComponent implements OnInit {
   dontAllow: boolean = false;
   noAccess: boolean = false;
+
   constructor(private _service: AdminService, private router: Router) {}
 
   ngOnInit(): void {}
@@ -22,7 +23,7 @@ export class AdminLoginComponent implements OnInit {
         this.noAccess = true;
       } else {
         this._service.setToken(res);
-        this.router.navigate(['/test']);
+        this.router.navigate(['/admindashboard']);
       }
     });
 
