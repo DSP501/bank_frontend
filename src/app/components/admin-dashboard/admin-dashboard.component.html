@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-between p-5" style="background-color: black">
+    <div>
+      <h1 class="text-white">Admin</h1>
+    </div>
+    <div>
+      <button class="btn btn-danger btn-lg">Logout</button>
+    </div>
+  </div>
+  
+  <div
+    class="container mt-5 p-5"
+    style="border: 1px solid black; border-radius: 12px"
+  >
+    <h1>All Users</h1>
+   
+    <hr />
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">User Id</th>
+          <th scope="col">User Name</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Date</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users">
+          <th>{{ item.UserId }}</th>
+          <th>{{ item.UserRefId }}</th>
+          <td>{{ item.Username }}</td>
+          <td>{{ item.FullName }}</td>
+          <td>{{ item.Date }}</td>
+          <td>
+            <div>
+              <button (click)="handleClick()" class="btn btn-danger btn-lg">
+                Visit
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
