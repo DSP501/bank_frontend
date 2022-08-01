@@ -15,7 +15,8 @@ export class UserDetailsService {
   }
 
   getUserById(id: any): Observable<any> {
-    return this.http.get<any>(`${this.baseurl}/${id}`);
+    console.log(id.email);
+    return this.http.post<any>(`${this.baseurl}/getuserbyid`, id);
   }
 
   getUnverifiedUser(): Observable<any> {

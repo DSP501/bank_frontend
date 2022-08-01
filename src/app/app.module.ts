@@ -11,9 +11,10 @@ import { UserRegisterComponent } from './components/user-register/user-register.
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { TestComponent } from './components/test/test.component';
 import { UnlockAccountComponent } from './components/unlock-account/unlock-account.component';
+import { AccStatusComponent } from './components/acc-status/acc-status.component';
 
 @NgModule({
-  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, TestComponent, UnlockAccountComponent],
+  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, TestComponent, UnlockAccountComponent, AccStatusComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

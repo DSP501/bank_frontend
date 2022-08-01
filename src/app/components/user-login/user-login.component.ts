@@ -25,6 +25,8 @@ export class UserLoginComponent implements OnInit {
         } else if (res == '-1') {
           this.accLocked = true;
           console.log('account locked');
+        } else if (res == '100') {
+          console.log('set pass . . . ');
         } else {
           console.log(res.fname);
 
