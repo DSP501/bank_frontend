@@ -24,12 +24,12 @@ export class UserLoginComponent implements OnInit {
           console.log('wrong password');
         } else if (res == '-1') {
           this.accLocked = true;
-          console.log('account locked');
+          //console.log('account locked');
         } else if (res == '100') {
           console.log('set pass . . . ');
+          this.router.navigate(['/setcred']);
         } else {
-          console.log(res.fname);
-
+          // console.log(res.fname);
           this._service.setToken(res);
           this.router.navigate(['/test']);
         }

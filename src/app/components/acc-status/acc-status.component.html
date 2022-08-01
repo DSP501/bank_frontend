@@ -73,6 +73,19 @@
       </div>
     </div>
 
+    <div class="row" *ngIf="pending">
+      <div class="col">
+        <span>Account Approval Pending</span>
+        <p>Wait unitl your account gets appoved</p>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="error">
+      <div class="col">
+        <span>Id does not exsist</span>
+      </div>
+    </div>
+
     <!-- <div class="row" *ngIf="accOpen">
       <div class="col">
         <span>Your Account is ALready Unlocked</span>

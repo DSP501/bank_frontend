@@ -8,6 +8,8 @@ import { UserDetailsService } from 'src/app/services/user-details.service';
 })
 export class AccStatusComponent implements OnInit {
   isapprove: boolean = false;
+  pending: boolean = false;
+  error: boolean = false;
 
   constructor(private _service: UserDetailsService) {}
 
@@ -17,8 +19,16 @@ export class AccStatusComponent implements OnInit {
     this._service.getUserById(data).subscribe((res) => {
       console.log(res);
 
-      if (res.isapproved == true) {
-        this.isapprove = true;
+      if (res != null) {
+        if (res == '-1') {
+          this.error = true;
+        } else if (res.isapproved == true) {
+          this.isapprove = true;
+        } else {
+          this.pending = true;
+        }
+      } else {
+        this.error = true;
       }
     });
 

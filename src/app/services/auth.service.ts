@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,10 @@ export class AuthService {
 
   unlock(data: any): Observable<any> {
     return this.http.post<any>(this.baseurl + '/unlock', data);
+  }
+
+  setcred(data: any): Observable<any> {
+    return this.http.post<any>(this.baseurl + '/setcred', data);
   }
 
   setToken(data: any) {

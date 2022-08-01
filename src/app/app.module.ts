@@ -12,9 +12,10 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { TestComponent } from './components/test/test.component';
 import { UnlockAccountComponent } from './components/unlock-account/unlock-account.component';
 import { AccStatusComponent } from './components/acc-status/acc-status.component';
+import { SetPasswordComponent } from './components/set-password/set-password.component';
 
 @NgModule({
-  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, TestComponent, UnlockAccountComponent, AccStatusComponent],
+  declarations: [AppComponent, UserRegisterComponent, UserLoginComponent, TestComponent, UnlockAccountComponent, AccStatusComponent, SetPasswordComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
