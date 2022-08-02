@@ -6,6 +6,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { SetPasswordComponent } from './components/set-password/set-password.component';
 import { TestComponent } from './components/test/test.component';
 import { UnlockAccountComponent } from './components/unlock-account/unlock-account.component';
+import { UserApproveComponent } from './components/user-approve/user-approve.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { AdminGuard } from './services/admin.guard';
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'admindashboard',
     component: AdminDashboardComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'userapprove/:id',
+    component: UserApproveComponent,
     canActivate: [AdminGuard],
   },
 ];

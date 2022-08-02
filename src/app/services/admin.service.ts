@@ -18,6 +18,15 @@ export class AdminService {
     return this.http.get<any>(this.baseurl);
   }
 
+  getUserById(id: number): Observable<any> {
+    console.log(id);
+    return this.http.get<any>(`${this.baseurl}/getuserbyid/${id}`);
+  }
+
+  approveUser(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseurl}/approveuser/${id}`);
+  }
+
   setToken(data: any) {
     localStorage.setItem('admin_login', 'true');
     localStorage.setItem('emp_id', data.emp_id);

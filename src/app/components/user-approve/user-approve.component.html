@@ -1,0 +1,88 @@
+<div class="col">
+  <label class="fs-4">Title:</label>&nbsp;
+  <code class="fs-3">{{ data.title }} </code>
+</div>
+<div class="row">
+  <div class="col">
+    <label class="fs-4">First Name:</label>&nbsp;
+    <code class="fs-3">{{ data.fname }}</code>
+  </div>
+  <div class="col">
+    <label class="fs-4">Middle Name:</label>&nbsp;
+    <code class="fs-3">{{ data.mname }}</code>
+  </div>
+  <div class="col">
+    <label class="fs-4">Last Name:</label>&nbsp;
+    <code class="fs-3">{{ data.lname }}</code>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <label class="fs-4">Father:</label>&nbsp;
+    <code class="fs-3">{{ data.father_name }}</code>
+  </div>
+</div>
+<div class="col">
+  <label class="fs-4">Mobile:</label>&nbsp;
+  <code class="fs-3">{{ data.mobile_no }}</code>
+</div>
+
+<div class="row">
+  <div class="col">
+    <label class="fs-4">Email:</label>&nbsp;
+    <code class="fs-3">{{ data.email }}</code>
+  </div>
+</div>
+
+<div class="col">
+  <label class="fs-4">Aadhar:</label>&nbsp;
+  <code class="fs-3">{{ data.aadhar_no }}</code>
+</div>
+
+<div class="col">
+  <label class="fs-4">Pancard:</label>&nbsp;
+  <code class="fs-3">{{ data.pancard }}</code>
+</div>
+
+<div class="col">
+  <label class="fs-4">DOB:</label>&nbsp;
+  <code class="fs-3">{{ data.dob | date }}</code>
+</div>
+
+<div class="col">
+  <label class="fs-4">Occupation:</label>&nbsp;
+  <code class="fs-3">{{ data.occupation_type }}</code>
+</div>
+
+<div class="col">
+  <label class="fs-4">Source of income:</label>&nbsp;
+  <code class="fs-3">{{ data.source_of_income }}</code>
+</div>
+
+<div class="col">
+  <label class="fs-4">Gross Income:</label>&nbsp;
+  <code class="fs-3">{{ data.gross_income | currency }}</code>
+</div>
+
+<div class="col">
+  <label class="fs-4">Residential Address:</label>&nbsp;
+  <code class="fs-3"
+    >{{ data.add_line_1 }}, {{ data.add_line_2 }}, {{ data.landmark }},
+    {{ data.state }}, {{ data.city }}, {{ data.pincode }}</code
+  >
+</div>
+
+<div class="col">
+  <label class="fs-4">Permanent Address:</label>&nbsp;
+  <code class="fs-3"
+    >{{ data.p_add_line_1 }}, {{ data.p_add_line_2 }}, {{ data.p_landmark }},
+    {{ data.p_state }}, {{ data.p_city }}, {{ data.p_pincode }}</code
+  >
+</div>
+<br />
+
+<button class="btn btn-success" (click)="approve(data.user_ref_id)">
+  Approve
+</button>
+&nbsp;
+<button class="btn btn-danger">Reject</button>

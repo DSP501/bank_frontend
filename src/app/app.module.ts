@@ -17,6 +17,7 @@ import { AccStatusComponent } from './components/acc-status/acc-status.component
 import { SetPasswordComponent } from './components/set-password/set-password.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { UserApproveComponent } from './components/user-approve/user-approve.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     SetPasswordComponent,
     AdminLoginComponent,
     AdminDashboardComponent,
+    UserApproveComponent,
   ],
   imports: [
     OrderModule,

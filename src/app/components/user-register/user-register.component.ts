@@ -17,6 +17,7 @@ export class UserRegisterComponent implements OnInit {
     this._service.addUser(data).subscribe((res) => {
       console.log(res);
       alert('Details Submitted Successfully');
+      
     });
   }
 }
