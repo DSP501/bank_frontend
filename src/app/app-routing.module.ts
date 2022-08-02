@@ -5,6 +5,7 @@ import { AddPayeeComponent } from './components/add-payee/add-payee.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { HomeComponent } from './components/home/home.component';
+import { ImpsComponent } from './components/imps/imps.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { SetPasswordComponent } from './components/set-password/set-password.component';
 import { TestComponent } from './components/test/test.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   { path: 'payee', component: AddPayeeComponent, canActivate: [AuthGuard] },
+  { path: 'imps', component: ImpsComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotfoundComponent },
 ];
 

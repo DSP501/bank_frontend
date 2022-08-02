@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="outer-div">
+    <form
+      #transfer="ngForm"
+      (ngSubmit)="pay(transfer.value)"
+      class="border p-3 rounded"
+    >
+      <div class="row g-0">
+        <div class="col text-center mb-3 bg-light">
+          <span class="fs-2"> Fund Transfer</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">
+            User Refereance Id :
+            <code class="fs-5">{{ user_ref_id }}</code></label
+          >
+          <input
+            type="text"
+            disabled
+            class="form-control"
+            value="{{ user_id }}"
+          />
+          <input name="user_id" type="hidden" class="form-control" ngModel />
+          <input name="to_acc_no" type="hidden" class="form-control" ngModel />
+          <input name="to_ifsc" type="hidden" class="form-control" ngModel />
+          <input name="to_name" type="hidden" class="form-control" ngModel />
+          <input name="to_bank" type="hidden" class="form-control" ngModel />
+          <input name="crdr" type="hidden" class="form-control" ngModel />
+          <input name="trans_mode" type="hidden" ngModel />
+          <!-- <input
+            name="maturity_instr"
+            type="hidden"
+            class="form-control"
+            ngModel
+          /> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Select Payee</label>
+          <select
+            class="form-select"
+            aria-label="Select Payee"
+            name="payee"
+            required
+            ngModel
+          >
+            <option *ngFor="let item of payee" value="{{ item.payee_id }}">
+              {{ item.nickname }}
+            </option>
+          </select>
+        </div>
+        <div class="col">
+          <span class="badge rounded-pill bg-warning text-dark"
+            ><a routerLink="/payee" class="form-group">Add New</a></span
+          >
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Amount</label>
+          <input
+            #amount="ngModel"
+            required
+            type="number"
+            name="amount"
+            class="form-control"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="amount.errors?.['required'] && (amount.dirty || amount.touched)"
+          >
+            Amount Required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Transaction Type</label>
+          <select
+            class="form-select"
+            aria-label="Transaction Type"
+            name="trans_type"
+            required
+            ngModel
+          >
+            <option value="imps" (select)="change('imps')">IMPS</option>
+            <option value="rtgs" (click)="change('rtgs')">RTGS</option>
+            <option value="neft" (click)="change('neft')">NEFT</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Date</label>
+          <input
+            #trans_date="ngModel"
+            required
+            type="date"
+            name="trans_date"
+            class="form-control"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="trans_date.errors?.['required'] && (trans_date.dirty || trans_date.touched)"
+          >
+            Date Required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Remark</label>
+          <input
+            #remark="ngModel"
+            required
+            type="text"
+            name="remark"
+            class="form-control"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="remark.errors?.['required'] && (remark.dirty || remark.touched)"
+          >
+            Remark Required
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="form-text text-danger" *ngIf="less_amt">
+        Insufficient balance
+      </div>
+
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="transfer.invalid"
+            >
+              Transfer
+            </button>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <span>Head back to dashboard</span
+          ><a class="badge rounded-pill bg-primary" routerLink="/userdashboard">
+            user dashboard</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

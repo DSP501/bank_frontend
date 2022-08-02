@@ -34,7 +34,7 @@ export class AdminDashboardComponent implements OnInit {
     this.orderHeader = header;
   }
 
-  visit(data: any) {
+  verify(data: any) {
     this.router.navigate([`/userapprove/${data}`]);
   }
 }

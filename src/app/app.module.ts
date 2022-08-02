@@ -22,6 +22,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddPayeeComponent } from './components/add-payee/add-payee.component';
+import { ImpsComponent } from './components/imps/imps.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AddPayeeComponent } from './components/add-payee/add-payee.component';
     HomeComponent,
     NavbarComponent,
     AddPayeeComponent,
+    ImpsComponent,
   ],
   imports: [
     OrderModule,

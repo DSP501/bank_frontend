@@ -12,4 +12,8 @@ export class PayeeService {
   addPayee(payee: any): Observable<any> {
     return this.http.post<any>(this.baseurl, payee);
   }
+
+  getById(id: any): Observable<any> {
+    return this.http.get<any>(`${this.baseurl}/${id}`);
+  }
 }
