@@ -31,6 +31,7 @@ export class AuthService {
     localStorage.setItem('user_ref_id', data.user_ref_id);
     localStorage.setItem('fname', data.fname);
     localStorage.setItem('lname', data.lname);
+    localStorage.setItem('email', data.email);
   }
 
   removeToken() {

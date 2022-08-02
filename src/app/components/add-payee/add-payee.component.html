@@ -1,0 +1,154 @@
+<div class="container">
+  <div class="outer-div">
+    <form
+      #payee="ngForm"
+      (ngSubmit)="add(payee.value)"
+      class="border p-3 rounded"
+    >
+      <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+          <span class="fs-1">Add Payee</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">
+            User Refereance Id : <code class="fs-5">{{ user_id }}</code></label
+          >
+
+          <input
+            type="text"
+            disabled
+            class="form-control"
+            value="{{ email }}"
+          />
+          <input name="user_id" type="hidden" class="form-control" ngModel />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Payee Account No</label>
+          <input
+            #account_no="ngModel"
+            required
+            type="number"
+            name="account_no"
+            class="form-control"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="account_no.errors?.['required'] && (account_no.dirty || account_no.touched)"
+          >
+            Account No Required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Payee IFSC No</label>
+          <input
+            #ifsc="ngModel"
+            required
+            type="text"
+            name="ifsc"
+            class="form-control"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="ifsc.errors?.['required'] && (ifsc.dirty || ifsc.touched)"
+          >
+            IFSC Required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Payee Bank Name</label>
+          <input
+            #bank_name="ngModel"
+            required
+            type="text"
+            name="bank_name"
+            class="form-control"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="bank_name.errors?.['required'] && (bank_name.dirty || bank_name.touched)"
+          >
+            Account No Required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Payee Name</label>
+          <input
+            #payee_name="ngModel"
+            required
+            type="text"
+            name="payee_name"
+            class="form-control"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="payee_name.errors?.['required'] && (payee_name.dirty || payee_name.touched)"
+          >
+            Payee Name Required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label class="form-label">Payee Nickname</label>
+          <input
+            #nickname="ngModel"
+            required
+            type="text"
+            name="nickname"
+            class="form-control"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="nickname.errors?.['required'] && (nickname.dirty || nickname.touched)"
+          >
+            Nickname Required
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="payee.invalid"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <span>Head back to dashboard</span
+          ><a class="badge rounded-pill bg-primary" routerLink="/userdashboard">
+            user dashboard</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

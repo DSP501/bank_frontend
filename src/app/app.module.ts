@@ -21,6 +21,7 @@ import { UserApproveComponent } from './components/user-approve/user-approve.com
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AddPayeeComponent } from './components/add-payee/add-payee.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NotfoundComponent,
     HomeComponent,
     NavbarComponent,
+    AddPayeeComponent,
   ],
   imports: [
     OrderModule,

@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccStatusComponent } from './components/acc-status/acc-status.component';
+import { AddPayeeComponent } from './components/add-payee/add-payee.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'registeruser', component: UserRegisterComponent },
   { path: 'userlogin', component: UserLoginComponent },
-  { path: 'test', component: TestComponent, canActivate: [AdminGuard] },
+  { path: 'test', component: TestComponent, canActivate: [AuthGuard] },
   { path: 'accstatus', component: AccStatusComponent },
   { path: 'setcred', component: SetPasswordComponent },
   { path: 'unlock', component: UnlockAccountComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     component: UserApproveComponent,
     canActivate: [AdminGuard],
   },
+  { path: 'payee', component: AddPayeeComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotfoundComponent },
 ];
 
