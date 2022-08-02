@@ -18,6 +18,9 @@ import { SetPasswordComponent } from './components/set-password/set-password.com
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { UserApproveComponent } from './components/user-approve/user-approve.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { UserApproveComponent } from './components/user-approve/user-approve.com
     AdminLoginComponent,
     AdminDashboardComponent,
     UserApproveComponent,
+    NotfoundComponent,
+    HomeComponent,
+    NavbarComponent,
   ],
   imports: [
     OrderModule,

@@ -1,94 +1,69 @@
-<!-- <div class="modal-body" style="padding: 40px 50px">
-  <form (ngSubmit)="verify()">
-    <div class="form-group">
-      <h2>Admin Login</h2>
-      <label for="username"
-        ><span class="glyphicon glyphicon-user"></span> Username</label
-      >
-      <input
-        type="number"
-        [(ngModel)]="empId"
-        name="empId"
-        class="form-control"
-        id="usrname"
-        placeholder="Enter empId"
-      />
-    </div>
-     <div class="form-group"> 
-          <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-          <input type="password" [(ngModel)]=pass name="pass" class="form-control" id="psw" placeholder="Enter password" />
-        </div> -->
-<!-- <button type="submit" class="btn btn-success btn-block">
-      <span class="glyphicon glyphicon-off"></span>Login
-    </button>
-    <p *ngIf="msg" style="color: red; font-size: 20px">
-      Invalid Username or password
-    </p>
-  </form>
-</div> -->
+<div class="container">
+  
+<app-navbar></app-navbar>
 
-<!--<a routerLink="/admin" routerLinkActive="active">-->
 
-<div class="outer-div">
-  <form
-    #loginform="ngForm"
-    (ngSubmit)="login(loginform.value)"
-    class="border p-3 rounded"
-  >
-    <div class="row g-0">
-      <div class="col text-center p-2 mb-3 bg-light">
-        <span class="fs-1">Admin Login</span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col mb-3">
-        <label for="email" class="form-label">Admin Id</label>
-        <input
-          #emp_id="ngModel"
-          required
-          type="number"
-          number
-          class="form-control"
-          name="emp_id"
-          ngModel
-        />
-        <div
-          class="form-text text-danger"
-          *ngIf="emp_id.errors?.['required'] && (emp_id.dirty || emp_id.touched)"
-        >
-          I'd Required
-        </div>
-        <div class="form-text text-danger" *ngIf="dontAllow">
-          I'd does not exist
-        </div>
-        <div class="form-text text-danger" *ngIf="noAccess">
-          You are not a manager
+  <div class="outer-div">
+    <form
+      #loginform="ngForm"
+      (ngSubmit)="login(loginform.value)"
+      class="border p-3 rounded"
+    >
+      <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+          <span class="fs-1">Admin Login</span>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-6 offset-3">
-        <div class="d-grid">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="loginform.invalid"
+      <div class="row">
+        <div class="col mb-3">
+          <label for="email" class="form-label">Admin Id</label>
+          <input
+            #emp_id="ngModel"
+            required
+            type="number"
+            number
+            class="form-control"
+            name="emp_id"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="emp_id.errors?.['required'] && (emp_id.dirty || emp_id.touched)"
           >
-            Login
-          </button>
+            I'd Required
+          </div>
+          <div class="form-text text-danger" *ngIf="dontAllow">
+            I'd does not exist
+          </div>
+          <div class="form-text text-danger" *ngIf="noAccess">
+            You are not a manager
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <div class="row">
-      <div class="col">
-        <span>Back To Home Page</span
-        ><a class="badge rounded-pill bg-primary" routerLink="/registeruser">
-          Home Page</a
-        >
+
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="loginform.invalid"
+            >
+              Login
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-  </form>
+      <br />
+      <div class="row">
+        <div class="col">
+          <span>Back To Home Page</span
+          ><a class="badge rounded-pill bg-primary" routerLink="/registeruser">
+            Home Page</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

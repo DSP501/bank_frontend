@@ -1,96 +1,100 @@
-<div class="outer-div">
-  <form
-    #accstatus="ngForm"
-    (ngSubmit)="status(accstatus.value)"
-    class="border p-3 rounded"
-  >
-    <div class="row g-0">
-      <div class="col text-center p-2 mb-3 bg-light">
-        <span class="fs-1">Check Account Approval Status</span>
-      </div>
-    </div>
+<div class="container">
+  <app-navbar></app-navbar>
 
-    <div class="row">
-      <div class="col mb-3">
-        <label for="email" class="form-label">Enter Registered Email*</label>
-        <input
-          #user_id="ngModel"
-          required
-          maxlength="50"
-          type="email"
-          email
-          class="form-control"
-          name="email"
-          ngModel
-        />
-        <div
-          class="form-text text-danger"
-          *ngIf="user_id.errors?.['required'] && (user_id.dirty || user_id.touched)"
-        >
-          Email Required
-        </div>
-        <div
-          class="form-text text-danger"
-          *ngIf="user_id.errors?.['email'] && (user_id.dirty || user_id.touched)"
-        >
-          Email Invalid
+  <div class="outer-div">
+    <form
+      #accstatus="ngForm"
+      (ngSubmit)="status(accstatus.value)"
+      class="border p-3 rounded"
+    >
+      <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+          <span class="fs-1">Check Account Approval Status</span>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-6 offset-3">
-        <div class="d-grid">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            [disabled]="accstatus.invalid"
+      <div class="row">
+        <div class="col mb-3">
+          <label for="email" class="form-label">Enter Registered Email*</label>
+          <input
+            #user_id="ngModel"
+            required
+            maxlength="50"
+            type="email"
+            email
+            class="form-control"
+            name="email"
+            ngModel
+          />
+          <div
+            class="form-text text-danger"
+            *ngIf="user_id.errors?.['required'] && (user_id.dirty || user_id.touched)"
           >
-            Check
-          </button>
+            Email Required
+          </div>
+          <div
+            class="form-text text-danger"
+            *ngIf="user_id.errors?.['email'] && (user_id.dirty || user_id.touched)"
+          >
+            Email Invalid
+          </div>
         </div>
       </div>
-    </div>
-    <br />
-    <div class="row">
-      <div class="col">
-        <!-- <span>Go to Home Page</span -->
-        <!-- > -->
-      </div>
-    </div>
-    <br />
-    <div class="row" *ngIf="isapprove">
-      <div class="col">
-        <span>Your account has been approved</span><br />
-        <p>
-          Use your registered email and DOB as password to login and change your
-          password
-        </p>
 
-        <a class="badge rounded-pill bg-primary" routerLink="/userlogin">
-          Login</a
-        >
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="accstatus.invalid"
+            >
+              Check
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="row" *ngIf="pending">
-      <div class="col">
-        <span>Account Approval Pending</span>
-        <p>Wait unitl your account gets appoved</p>
+      <br />
+      <div class="row">
+        <div class="col">
+          <!-- <span>Go to Home Page</span -->
+          <!-- > -->
+        </div>
       </div>
-    </div>
+      <br />
+      <div class="row" *ngIf="isapprove">
+        <div class="col">
+          <span>Your account has been approved</span><br />
+          <p>
+            Use your registered email and DOB as password to login and change
+            your password
+          </p>
 
-    <div class="row" *ngIf="error">
-      <div class="col">
-        <span>Id does not exsist</span>
+          <a class="badge rounded-pill bg-primary" routerLink="/userlogin">
+            Login</a
+          >
+        </div>
       </div>
-    </div>
 
-    <!-- <div class="row" *ngIf="accOpen">
+      <div class="row" *ngIf="pending">
+        <div class="col">
+          <span>Account Approval Pending</span>
+          <p>Wait unitl your account gets appoved</p>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="error">
+        <div class="col">
+          <span>Id does not exsist</span>
+        </div>
+      </div>
+
+      <!-- <div class="row" *ngIf="accOpen">
       <div class="col">
         <span>Your Account is ALready Unlocked</span>
         <a routerLink="/userlogin"> Login To Your Account</a>
       </div>
     </div> -->
-  </form>
+    </form>
+  </div>
 </div>

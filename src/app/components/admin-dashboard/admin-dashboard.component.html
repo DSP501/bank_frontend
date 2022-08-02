@@ -1,44 +1,51 @@
-<div
-  class="d-flex justify-content-between p-3 rounded-3"
-  style="background-color: black"
->
-  <div>
-    <h1 class="text-white">Welcome {{ admin }}</h1>
+<div class="container">
+  <div
+    class="d-flex justify-content-between p-3 rounded-3"
+    style="background-color: black"
+  >
+    <div>
+      <h1 class="text-white">Welcome {{ admin }}</h1>
+    </div>
+    <div>
+      <button (click)="logout()" class="btn btn-danger btn-lg">Logout</button>
+    </div>
   </div>
-  <div>
-    <button (click)="logout()" class="btn btn-danger btn-lg">Logout</button>
+
+  <div
+    class="container mt-5 p-3"
+    style="border: 1px solid black; border-radius: 12px"
+  >
+    <h1>All Users</h1>
+
+    <hr />
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" (click)="sort('user_ref_id')">Ref I'd</th>
+          <th scope="col" (click)="sort('fname')">First Name</th>
+          <th scope="col" (click)="sort('lname')">Last Name</th>
+          <th scope="col" (click)="sort('reg_date')">Date</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users | orderBy: orderHeader">
+          <th>{{ item.user_ref_id }}</th>
+          <td>{{ item.fname }}</td>
+          <td>{{ item.lname }}</td>
+          <td>{{ item.reg_date | date }}</td>
+          <td>
+            <div>
+              <button
+                (click)="visit(item.user_ref_id)"
+                class="btn btn-danger btn-lg"
+              >
+                Visit
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</div>
-
-<div
-  class="container mt-5 p-3"
-  style="border: 1px solid black; border-radius: 12px"
->
-  <h1>All Users</h1>
-
-  <hr />
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col" (click)="sort('user_ref_id')">Ref I'd</th>
-        <th scope="col" (click)="sort('fname')">First Name</th>
-        <th scope="col" (click)="sort('lname')">Last Name</th>
-        <th scope="col" (click)="sort('reg_date')">Date</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of users | orderBy: orderHeader">
-        <th>{{ item.user_ref_id }}</th>
-        <td>{{ item.fname }}</td>
-        <td>{{ item.lname }}</td>
-        <td>{{ item.reg_date | date }}</td>
-        <td>
-          <div>
-            <button (click)="visit(item.user_ref_id)" class="btn btn-danger btn-lg">Visit</button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>
