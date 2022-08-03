@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccStatusComponent } from './components/acc-status/acc-status.component';
+import { AccstatmentComponent } from './components/accstatment/accstatment.component';
 import { AddPayeeComponent } from './components/add-payee/add-payee.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     path: 'userdashboard',
     component: UserdashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'accstatment',
+    component: AccstatmentComponent,
     canActivate: [AuthGuard],
   },
 

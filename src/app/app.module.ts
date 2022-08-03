@@ -25,6 +25,7 @@ import { AddPayeeComponent } from './components/add-payee/add-payee.component';
 import { ImpsComponent } from './components/imps/imps.component';
 import { ManageFundsComponent } from './components/manage-funds/manage-funds.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { AccstatmentComponent } from './components/accstatment/accstatment.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { UserdashboardComponent } from './components/userdashboard/userdashboard
     ImpsComponent,
     ManageFundsComponent,
     UserdashboardComponent,
+    AccstatmentComponent,
   ],
   imports: [
     OrderModule,
