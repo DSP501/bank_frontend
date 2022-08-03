@@ -6,6 +6,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ImpsComponent } from './components/imps/imps.component';
+import { ManageFundsComponent } from './components/manage-funds/manage-funds.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { SetPasswordComponent } from './components/set-password/set-password.component';
 import { TestComponent } from './components/test/test.component';
@@ -13,6 +14,7 @@ import { UnlockAccountComponent } from './components/unlock-account/unlock-accou
 import { UserApproveComponent } from './components/user-approve/user-approve.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
+import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { AuthGuard } from './services/auth.guard';
 
@@ -35,8 +37,19 @@ const routes: Routes = [
     component: UserApproveComponent,
     canActivate: [AdminGuard],
   },
+  {
+    path: 'managefunds',
+    component: ManageFundsComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'userdashboard',
+    component: UserdashboardComponent,
+    canActivate: [AuthGuard],
+  },
+
   { path: 'payee', component: AddPayeeComponent, canActivate: [AuthGuard] },
-  { path: 'imps', component: ImpsComponent, canActivate: [AuthGuard] },
+  { path: 'fundtransfer', component: ImpsComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotfoundComponent },
 ];
 

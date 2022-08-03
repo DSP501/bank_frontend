@@ -7,51 +7,42 @@
     >
       <div class="row g-0">
         <div class="col text-center mb-3 bg-light">
-          <span class="fs-2"> Fund Transfer</span>
+          <span class="fs-2">Manage Fund</span>
         </div>
       </div>
 
       <div class="row">
         <div class="col mb-3">
-          <label class="form-label">
-            User Refereance Id :
-            <code class="fs-5">{{ user_ref_id }}</code></label
-          >
-          <input
-            type="text"
-            disabled
-            class="form-control"
-            value="{{ user_id }}"
-          />
           <input name="user_id" type="hidden" class="form-control" ngModel />
-          <input name="to_acc_no" type="hidden" class="form-control" ngModel />
+          <!-- <input name="to_acc_no" type="hidden" class="form-control" ngModel /> -->
           <input name="to_ifsc" type="hidden" class="form-control" ngModel />
           <input name="to_name" type="hidden" class="form-control" ngModel />
           <input name="to_bank" type="hidden" class="form-control" ngModel />
-          <input name="crdr" type="hidden" class="form-control" ngModel />
+          <input name="trans_type" type="hidden" ngModel />
           <input name="trans_mode" type="hidden" ngModel />
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <label>Select Payee</label>
+          <label>Select Account No</label>
           <select
             class="form-select"
-            aria-label="Select Payee"
-            name="payee"
+            aria-label="user_ref_id"
+            name="to_acc_no"
             required
             ngModel
           >
-            <option *ngFor="let item of payee" value="{{ item.payee_id }}">
-              {{ item.nickname }}
+            <option *ngFor="let item of acc" value="{{ item.acc_no }}">
+              {{ item.acc_no }}
             </option>
           </select>
-        </div>
-        <div class="col">
-          <span class="badge rounded-pill bg-warning text-dark"
-            ><a routerLink="/payee" class="form-group">Add New</a></span
+          <!-- <div
+            class="form-text text-danger"
+            *ngIf="account_no.errors?.['required'] && (account_no.dirty || account_no.touched)"
           >
+            Account no Required
+          </div> -->
         </div>
       </div>
 
@@ -76,19 +67,25 @@
       </div>
 
       <div class="row">
-        <div class="col">
-          <label class="form-label">Transaction Type</label>
+        <div class="col mb-3">
+          <label class="form-label">CRDR</label>
           <select
+            #crdr="ngModel"
             class="form-select"
-            aria-label="Transaction Type"
-            name="trans_type"
+            aria-label="crdr"
+            name="crdr"
             required
             ngModel
           >
-            <option value="imps" (select)="change('imps')">IMPS</option>
-            <option value="rtgs" (click)="change('rtgs')">RTGS</option>
-            <option value="neft" (click)="change('neft')">NEFT</option>
+            <option value="credit">credit</option>
+            <option value="debit">debit</option>
           </select>
+          <div
+            class="form-text text-danger"
+            *ngIf="crdr.errors?.['required'] && (crdr.dirty || crdr.touched)"
+          >
+            crdr Required
+          </div>
         </div>
       </div>
 
@@ -134,12 +131,9 @@
 
       <br />
 
-      <div class="form-text text-danger" *ngIf="less_amt">
+      <!-- <div class="form-text text-danger" *ngIf="less_amt">
         Insufficient balance
-      </div>
-      <div class="form-text text-danger" *ngIf="err_display">
-        Try again later
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col-6 offset-3">
@@ -154,12 +148,15 @@
           </div>
         </div>
       </div>
+
       <br />
       <div class="row">
         <div class="col">
-          <span>Head back to dashboard</span
-          ><a class="badge rounded-pill bg-primary" routerLink="/userdashboard">
-            user dashboard</a
+          <span>Head back to dashboard</span>&nbsp;<a
+            class="badge rounded-pill bg-primary"
+            routerLink="/admindashboard"
+          >
+            admin dashboard</a
           >
         </div>
       </div>

@@ -23,6 +23,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddPayeeComponent } from './components/add-payee/add-payee.component';
 import { ImpsComponent } from './components/imps/imps.component';
+import { ManageFundsComponent } from './components/manage-funds/manage-funds.component';
+import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { ImpsComponent } from './components/imps/imps.component';
     NavbarComponent,
     AddPayeeComponent,
     ImpsComponent,
+    ManageFundsComponent,
+    UserdashboardComponent,
   ],
   imports: [
     OrderModule,

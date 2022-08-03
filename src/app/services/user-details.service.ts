@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,10 @@ export class UserDetailsService {
 
   getAllUser(): Observable<any> {
     return this.http.get<any>(this.baseurl);
+  }
+
+  getUserByRefId(id: any): Observable<any> {
+    return this.http.get<any>(this.baseurl + '/getUserByRefId/' + id);
   }
 
   getUserById(id: any): Observable<any> {

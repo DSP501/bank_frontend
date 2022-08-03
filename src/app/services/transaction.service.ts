@@ -13,4 +13,15 @@ export class TransactionService {
   add(data: any): Observable<any> {
     return this.http.post<any>(this.baseurl, data);
   }
+
+  getAccounts(): Observable<any> {
+    return this.http.get<any>(this.baseurl);
+  }
+
+  getAccountByRefId(id : any) : Observable<any> {
+    return this.http.get<any>(`${this.baseurl}/getAccByRefId/${id}`);
+  }
+
+
+
 }
