@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccDetailsComponent } from './components/acc-details/acc-details.component';
 import { AccStatusComponent } from './components/acc-status/acc-status.component';
 import { AccstatmentComponent } from './components/accstatment/accstatment.component';
 import { AddPayeeComponent } from './components/add-payee/add-payee.component';
@@ -51,6 +52,11 @@ const routes: Routes = [
   {
     path: 'accstatment',
     component: AccstatmentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'accdetails',
+    component: AccDetailsComponent,
     canActivate: [AuthGuard],
   },
 

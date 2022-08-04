@@ -26,6 +26,7 @@ import { ImpsComponent } from './components/imps/imps.component';
 import { ManageFundsComponent } from './components/manage-funds/manage-funds.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { AccstatmentComponent } from './components/accstatment/accstatment.component';
+import { AccDetailsComponent } from './components/acc-details/acc-details.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AccstatmentComponent } from './components/accstatment/accstatment.compo
     ManageFundsComponent,
     UserdashboardComponent,
     AccstatmentComponent,
+    AccDetailsComponent,
   ],
   imports: [
     OrderModule,
